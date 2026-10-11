@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: db-container
-        image: mysql:latest
+        image: mysql:8.0
         ports:
         - containerPort: 3306
         env:
@@ -45,7 +45,8 @@ spec:
           mountPath: /var/lib/mysql
       volumes:
       - name: db-vol
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: db-pvc
         
 
 
